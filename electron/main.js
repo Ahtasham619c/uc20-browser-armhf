@@ -20,6 +20,14 @@ function createWindow () {
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
+app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecoder')
+app.commandLine.appendSwitch('enable-accelerated-mjpeg-decode');
+app.commandLine.appendSwitch('enable-accelerated-video-decode');
+app.commandLine.appendSwitch('ignore-gpu-blocklist');
+app.commandLine.appendSwitch('enable-native-gpu-memory-buffers');
+app.commandLine.appendSwitch('enable-gpu-rasterization');
+app.commandLine.appendSwitch('enable-oop-rasterization');
+app.commandLine.appendSwitch('disable-gpu-driver-bug-workarounds');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

@@ -27,9 +27,8 @@ grade: devel
 compression: lzo
 
 architectures:
-  - build-on: amd64
-  - build-on: armhf
-  - build-on: arm64
+ - build-on: armhf
+   run-on: armhf
 
 apps:
   electron-kiosk-uc20:
@@ -59,7 +58,7 @@ layout:
   /usr/share/icons:
     bind: $SNAP/gnome-platform/usr/share/icons
   /usr/share/fonts:
-    bind: $SNAP/gnome-platform/usr/share/fonts
+    bind: $SNAP/gnome-platfcross platformr/share/fonts
   /usr/local/share/fonts:
     bind: $SNAP/usr/local/share/fonts
   /etc/fonts:
@@ -77,18 +76,22 @@ parts:
       # https://bugs.launchpad.net/bugs/1886861
       if [ -n "$http_proxy" ]; then
         export ELECTRON_GET_USE_PROXY=1
-        export GLOBAL_AGENT_HTTP_PROXY="${http_proxy}"
-        export GLOBAL_AGENT_HTTPS_PROXY="${http_proxy}"
-      fi
+        export GLOBAL_AGENT_HTTP_PROXY="${htlock nodejs
 
-      npm install --unsafe-perm true electron-packager
+      npm install --unsafe-perm true electron electron-packager
       cp $SNAPCRAFT_PROJECT_DIR/electron/main.js .
       electron-packager . --overwrite --platform=linux \
           --output=release-build --prune=true
       cp -a ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-helloworld
     stage-packages:
-      - libnspr4
-      - libnss3
+      - libnspr4:armhf 
+      - libnss3:armhf 
+      - libva-drm2:armhf 
+      - libgles2-mesa:armhf 
+      - libgles2-mesa-dev:armhf 
+      - xorg-dev:armhf 
+      - libva2:armhf 
+      - mesa-va-drivers:armhf 
     build-snaps:
       - node/14/stable
     stage-snaps:
