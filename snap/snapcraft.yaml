@@ -84,14 +84,14 @@ parts:
           --output=release-build --prune=true
       cp -a ./electron-quick-start-linux-* $SNAPCRAFT_PART_INSTALL/electron-helloworld
     stage-packages:
-      - libnspr4:armhf 
-      - libnss3:armhf 
-      - libva-drm2:armhf 
-      - libgles2-mesa:armhf 
-      - libgles2-mesa-dev:armhf 
-      - xorg-dev:armhf 
-      - libva2:armhf 
-      - mesa-va-drivers:armhf 
+      - libnspr4
+      - libnss3
+      - libva-drm2
+      - libgles2-mesa
+      - libgles2-mesa-dev
+      - xorg-dev
+      - libva2
+      - mesa-va-drivers 
     build-snaps:
       - node/14/stable
     stage-snaps:
